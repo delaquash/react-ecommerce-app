@@ -17,10 +17,15 @@ const userSchema = mongoose.Schema({
     isAdmin : {
         type: Boolean,
         required: true,
-        default: fault
+        default: false
     }, 
+    
+},
+{
     timestamps: true
-})
+}
+
+)
 
 const User = mongoose.model('User', userSchema) 
 
