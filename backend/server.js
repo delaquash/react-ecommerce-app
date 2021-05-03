@@ -3,11 +3,15 @@ const dotenv =require('dotenv');
 const color = require('colors');
 const connectDB = require('./config/db');
 
+const productRoute = require('./route/productRoute')
+
 
 
 dotenv.config();
 connectDB();
 const app = express();
+
+app.use('/api/products', productRoute)
 
 app.get('/', (req, res) => {
     res.send('API is running....')
