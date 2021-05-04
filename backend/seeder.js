@@ -1,4 +1,4 @@
-const  colors  = require("colors");
+const colors  = require("colors");
 const mongoose = require("mongoose");
 const dotenv = require('dotenv');
 const users = require("./data/user");
@@ -14,8 +14,7 @@ dotenv.config();
 
 const importData = async() => {
     await connectDB()
-    try {
-        
+    try {  
         // empty the db before sending user details etc 
         await Order.deleteMany()
         await Product.deleteMany()

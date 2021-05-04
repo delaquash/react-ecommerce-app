@@ -2,7 +2,7 @@ const express =require('express') ;
 const dotenv =require('dotenv'); 
 const color = require('colors');
 const connectDB = require('./config/db');
-
+const product = require('./data/products')
 const productRoute = require('./route/productRoute')
 
 
