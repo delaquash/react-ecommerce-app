@@ -7,7 +7,7 @@ import { Container, Row, Col } from 'react-bootstrap';
             <Container>
                 <Row>
                     <Col className="text-center py-3">
-                        Copyright &copy: Delashop
+                        Copyright &copy; Delashop
                     </Col>
                 </Row>
             </Container>
