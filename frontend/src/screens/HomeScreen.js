@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
+import { listProducts } from '../actions/productAction';
 import products from '../product';
 
+
  const HomeScreen = () => {
+     const dispatch = useDispatch()
+
+     
+
+     useEffect(() => {
+        dispatch(listProducts())
+     }, [dispatch])
+
+     const products =[]
         return (
             <>
                 <h1>Latest Products</h1>
