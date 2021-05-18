@@ -13,4 +13,4 @@ const errorHandlingStatus =(err, req, res, next)=> {
     })
 }
 
-export {notFound, errorHandlingStatus}
+module.exports = {notFound, errorHandlingStatus}

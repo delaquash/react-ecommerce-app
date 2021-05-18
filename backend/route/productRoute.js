@@ -25,7 +25,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
     } else {
        res.status(404)
        throw new Error("Product does not exist")
-    
+    }
 }))
 
 module.exports = router;

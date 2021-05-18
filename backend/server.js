@@ -1,4 +1,4 @@
-const express =require('express') ;
+const express =require("express");
 const dotenv =require('dotenv'); 
 const color = require('colors');
 const connectDB = require('./config/db');
@@ -16,7 +16,7 @@ app.use('/api/products', productRoute)
 
 app.get('/', (req, res) => {
     res.send('API is running....')
-})
+});
 
 // Error handling for 404(Page not found)
 app.use(notFound)
