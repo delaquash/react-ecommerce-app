@@ -1,11 +1,14 @@
+
+import React, { useState, useEffect } from 'react';
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 import Rating from "../components/Rating";
-import products from "../product";
+import product from "../product";
+import axios from 'axios';
 
-
- const ProductScreen =({match})=>  {
-     const product = products.find((p) => p._id === match.params.id)
+ const ProductScreen =({ match })=>  {
+    useEffect(() => {}, [match])
      
         return (
             <>
