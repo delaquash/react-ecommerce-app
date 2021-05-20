@@ -1,21 +1,31 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
+import { listProductDetails } from '../actions/productAction';
 import Rating from "../components/Rating";
-import product from "../product";
-import axios from 'axios';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
 
- const ProductScreen =({ match })=>  {
-    useEffect(() => {}, [match])
+
+
+
+ const ProductScreen = ({ match }) =>  {
+     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(listProductDetails(match.params.id))
+    }, [dispatch, match])
+
+    const productDetails = useSelector(state => state.productDetails)
+    const {product, error, loading} = productDetails
      
         return (
             <>
                 <Link className='btn btn-light my-3' to='/'>
                     Go Back
                 </Link>
-                <Row>
+                {loading ? <Loader /> : error ?<Message variant='danger'>{error}</Message> :<Row>
                     <Col md={6}>
                         <Image src={product.image} alt={product.name} />
                     </Col>
@@ -62,7 +72,8 @@ import axios from 'axios';
                             </ListGroup>
                         </Card>
                     </Col>
-                </Row>
+                </Row> }
+                
             </>
         )
 }
