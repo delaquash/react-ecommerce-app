@@ -8,9 +8,6 @@ import Rating from "../components/Rating";
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 
-
-
-
  const ProductScreen = ({ match }) =>  {
      const dispatch = useDispatch()
     useEffect(() => {
@@ -72,8 +69,7 @@ import Loader from '../components/Loader';
                             </ListGroup>
                         </Card>
                     </Col>
-                </Row> }
-                
+                </Row>}   
             </>
         )
 }
