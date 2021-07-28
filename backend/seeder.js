@@ -26,7 +26,8 @@ const importData = async() => {
         const adminUser = createdUsers[0]._id
 
         // for product in order to add admin user to each product
-        const sampleProducts = products.map((product) => {
+        const sampleProducts = products.map(product => {
+            
             return { ...product, user: adminUser}
         })
         
@@ -49,7 +50,6 @@ const destroyData = async() => {
         await Order.deleteMany()
         await Product.deleteMany()
         await User.deleteMany()
-
        
         console.log('Data destroyed!'.red.inverse);
         process.exit()

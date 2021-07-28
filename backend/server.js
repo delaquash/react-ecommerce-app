@@ -2,7 +2,7 @@ const express =require("express");
 const dotenv =require('dotenv'); 
 const color = require('colors');
 const connectDB = require('./config/db');
-const product = require('./data/products')
+const products = require('./data/products')
 const productRoute = require('./route/productRoute')
 const { notFound, errorHandlingStatus } = require('./middleware/errorHandling')
 
@@ -12,7 +12,7 @@ dotenv.config();
 connectDB();
 const app = express();
 
-app.use('/api/products', productRoute)
+app.use('/api/products', productRoute);
 
 app.get('/', (req, res) => {
     res.send('API is running....')
