@@ -7,13 +7,12 @@ const User = require("./Model/userModel");
 const Order = require("./Model/orderModel");
 const Product = require("./Model/productModel");
 const connectDB = require("./config/db");
-
 dotenv.config();
 
+connectDB()
 
 
 const importData = async() => {
-    await connectDB()
     try {  
         // empty the db before sending user details etc 
         await Order.deleteMany()
@@ -26,7 +25,7 @@ const importData = async() => {
         const adminUser = createdUsers[0]._id
 
         // for product in order to add admin user to each product
-        const sampleProducts = products.map(product => {
+        const sampleProducts = products.map((product) => {
             
             return { ...product, user: adminUser}
         })

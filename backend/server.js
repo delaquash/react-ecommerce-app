@@ -2,20 +2,24 @@ const express =require("express");
 const dotenv =require('dotenv'); 
 const color = require('colors');
 const connectDB = require('./config/db');
-const products = require('./data/products')
-const productRoute = require('./route/productRoute')
+const productRoutes = require('./route/productRoute')
 const { notFound, errorHandlingStatus } = require('./middleware/errorHandling')
 
+const database =dotenv.config({
+    path: '.env'
+});
 
 
-dotenv.config();
 connectDB();
 const app = express();
 
-app.use('/api/products', productRoute);
+
+
+app.use('/api/products', productRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running....')
+    
 });
 
 // Error handling for 404(Page not found)
